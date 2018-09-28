@@ -38,13 +38,14 @@ def read(dataset = "training", path = "."):
     for i in range(len(lbl)):
         yield get_img(i)
 
-def show(image):
+def show(image, size=1):
     """
     Render a given numpy.uint8 2D array of pixel data.
     """
     from matplotlib import pyplot
     import matplotlib as mpl
-    fig = pyplot.figure()
+    fig = pyplot.figure(figsize=(size, size))
+    pyplot.axis('off')
     ax = fig.add_subplot(1,1,1)
     imgplot = ax.imshow(image, cmap=mpl.cm.Greys)
     imgplot.set_interpolation('nearest')
